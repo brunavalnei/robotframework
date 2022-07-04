@@ -15,11 +15,22 @@ Caso de Teste 01 - Acesso ao menu "Eletrônicos"
     E a categoria "Computadores e Informática" deve ser exibida na página
 
 
+Caso de Teste 02 - Pesquisa de um Produto
+    [Tags]          busca_produtos
+    Dado que estou na home page da Amazon.com.br
+    Quando pesquisar pelo produto "Xbox Series S"
+    Então o título da página deve ficar "Amazon.com.br : Xbox Series S"
+    E um produto da linha "Xbox Series S" deve ser mostrado na página
 
-#Caso de Teste 02 - Pesquisa de um Produto
-#    [Tags]          busca_produtos
-#    Dado que estou na home page da Amazon.com.br
-#    Quando pesquisar pelo produto "Xbox Series S"
-#    Então o título da página deve ficar "Amazon.com.br : Xbox Series S"
-#    E um produto da linha "Xbox Series S" deve ser mostrado na página
+
+Caso de Teste 03 - Adicionar produto no carrinho
+    [Documentation]  Esse teste verifica a adição de um produto no carrinho de compras
+    [Tags]          carrinho
+    Dado que estou na home page da Amazon.com.br
+    Quando pesquisar pelo produto "Xbox Series S"
+    E um produto da linha "Xbox Series S" deve ser mostrado na página
+    E adiciono o produto "Console Xbox Series S" no carrinho
+    E verifico a mensagem "Adicionado ao carrinho"
+    Então removo o produto do carrinho
+    Então verifico a mensagem "Seu carrinho de compras da Amazon está vazio."
 
