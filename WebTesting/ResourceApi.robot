@@ -29,6 +29,7 @@ Requisitar o contato "${ID}"
 
 Cadastrar um novo contato
     ${EMAIL}     FakerLibrary.Email
+    Set Global Variable     ${EMAIL}
     ${HEADERS}       Create Dictionary      content-type=application/json
     ${RESPONSE}=     POST On Session  apiTarefas   ${URL_API}/contacts/
 ...         data={"name": "bruna","last_name": "teste","email": "${EMAIL}","age": "28","phone": "22984759575","address": "Rua dois","state": "Minas Gerais","city": "Belo Horizonte"}
@@ -41,6 +42,12 @@ Cadastrar um novo contato
 Requisitar o contato
      ${HEADERS_GET}       Create Dictionary      content-type=application/json
      ${RESPONSE}=     Get On Session  apiTarefas   ${URL_API}/contacts/${idFromLisAsString}
+
+Editar o contato
+    ${HEADERS_GET}       Create Dictionary      content-type=application/json
+    ${RESPONSE}=     Put On Session  apiTarefas   ${URL_API}/contacts/${idFromLisAsString}
+...         data={"name": "bruna","last_name": "teste","email": "${EMAIL}","age": "38","phone": "22984759575","address": "Rua dois","state": "Minas Gerais","city": "Belo Horizonte"}
+...         headers=${HEADERS_GET}
 
 Deletar o contrato
     ${HEADERS_GET}       Create Dictionary      content-type=application/json

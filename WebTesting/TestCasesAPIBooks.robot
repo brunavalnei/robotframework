@@ -20,6 +20,10 @@ Buscar um contato especifico
         Requisitar o contato
         Conferir o status code "200"
 
+Editar um contato especifico
+        Editar o contato
+        Conferir o status code "200"
+
 Deletar um contato especifico
         Deletar o contrato
         Conferir o status code "204"
