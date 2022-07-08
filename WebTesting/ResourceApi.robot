@@ -9,7 +9,6 @@ Library         JSONLibrary
 *** Variables ***
 ${URL_API}          https://api-de-tarefas.herokuapp.com:443
 ${CONTATO_1172}     ID=1172
-...                 type= contacts
 
 *** Keywords ***
 Conectar a minha API
@@ -23,10 +22,6 @@ Requisitar todos os contatos
 
 Conferir o status code "${STATUSCODE}"
     ${RESPONSE}=    Status Should Be     ${STATUSCODE}
-
-Requisitar o contato "${ID}"
-    ${RESPONSE}=     GET     ${URL_API}/contacts/${ID}
-    Log     ${RESPONSE.text}
 
 Cadastrar um novo contato
     ${EMAIL}     FakerLibrary.Email

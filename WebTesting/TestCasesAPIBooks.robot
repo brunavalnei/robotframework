@@ -8,10 +8,6 @@ Buscar todos os contatos (GET)
         Requisitar todos os contatos
         Conferir o status code "200"
 
-Buscar um contato especifico (GET ID)
-        Requisitar o contato "1172"
-        Conferir o status code "200"
-
 Cadastrar um novo contato
         Cadastrar um novo contato
         Conferir o status code "201"
