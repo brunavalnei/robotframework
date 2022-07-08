@@ -14,7 +14,8 @@ ${CONTATO_1172}     ID=1172
 *** Keywords ***
 Conectar a minha API
     Create Session    apiTarefas    ${URL_API}
-
+    ${HEADERS}       Create Dictionary      content-type=application/json
+    Set Global Variable     ${HEADERS}
 
 Requisitar todos os contatos
     ${RESPONSE}=     GET     ${URL_API}/contacts
@@ -30,7 +31,6 @@ Requisitar o contato "${ID}"
 Cadastrar um novo contato
     ${EMAIL}     FakerLibrary.Email
     Set Global Variable     ${EMAIL}
-    ${HEADERS}       Create Dictionary      content-type=application/json
     ${RESPONSE}=     POST On Session  apiTarefas   ${URL_API}/contacts/
 ...         data={"name": "bruna","last_name": "teste","email": "${EMAIL}","age": "28","phone": "22984759575","address": "Rua dois","state": "Minas Gerais","city": "Belo Horizonte"}
 ...         headers=${HEADERS}
@@ -40,16 +40,13 @@ Cadastrar um novo contato
     Set Global Variable     ${idFromLisAsString}
 
 Requisitar o contato
-     ${HEADERS_GET}       Create Dictionary      content-type=application/json
      ${RESPONSE}=     Get On Session  apiTarefas   ${URL_API}/contacts/${idFromLisAsString}
 
 Editar o contato
-    ${HEADERS_GET}       Create Dictionary      content-type=application/json
     ${RESPONSE}=     Put On Session  apiTarefas   ${URL_API}/contacts/${idFromLisAsString}
 ...         data={"name": "bruna","last_name": "teste","email": "${EMAIL}","age": "38","phone": "22984759575","address": "Rua dois","state": "Minas Gerais","city": "Belo Horizonte"}
-...         headers=${HEADERS_GET}
+...         headers=${HEADERS}
 
 Deletar o contrato
-    ${HEADERS_GET}       Create Dictionary      content-type=application/json
     ${RESPONSE}=     Delete On Session  apiTarefas   ${URL_API}/contacts/${idFromLisAsString}
 
