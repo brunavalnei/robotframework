@@ -7,13 +7,13 @@ Library         JSONLibrary
 
 
 *** Variables ***
-${URL_API}          https://api-de-tarefas.herokuapp.com:443
+${URL_API}          http://api-de-tarefas.herokuapp.com:443
 ${CONTATO_1172}     ID=1172
 ...                 type= contacts
 
 *** Keywords ***
 Conectar a minha API
-    Create Session    apiTarefas    ${URL_API}
+    Create Session    apiTarefas    ${URL_API}      verify=False
 
 
 Requisitar todos os contatos
